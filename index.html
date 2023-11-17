@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>盯盘助手</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer ></script>
 	<style>
         *{
             margin: 0;
@@ -20,10 +21,21 @@
             height: 100%;
         }
     </style>
+    
 </head>
 <body>
-	<div class = "container" >
+	<div class="container" >
         <iframe src="https://fundsforweb.netlify.app/#/"  id="info-frame"  width="100%" height="100%" ></iframe>
      </div>
+     <div id="test-area-box"></div>
+     <script type="text/javascript">
+        window.onload = () => {
+            axios.get('https://market.hgold.cn/fx/1901/custom.php?s=96cd6025e455d441284551a330db424b&appid=1002&code=WGJS%7CXAU,WGJS%7CXAG,WH%7CUSD,NYMEX%7CCONC,IPE%7COILC,COMEX%7CGLNC,COMEX%7CSLNC,VIXDX%7CVIXDX,GJZS%7CCRB,LME%7CLMCI,WH%7CEURUSD,WH%7CGBPUSD,WH%7CUSDJPY,WH%7CAUDUSD,WH%7CUSDCNY&time=1700232225&key=b23b780231d2737cba1ed895bdfd43c9').then(res => {
+                console.log(res)
+                let el = document.getElementById('test-area-box')
+                el.innerText = el;
+            })
+        }
+    </script>
 </body>
 </html>
